@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demon.exam.mapper.ClassMapper">
+    <resultMap id="BaseResultMap" type="com.demon.exam.pojo.ClassInfo">
+        <id column="classId" property="classId" jdbcType="INTEGER"/>
+        <result column="className" property="className" jdbcType="VARCHAR"/>
+        <result column="teacherId" property="teacherId" jdbcType="INTEGER"/>
+        <result column="gradeId" property="gradeId" jdbcType="INTEGER"/>
+        <association property="grade" javaType="com.demon.exam.pojo.GradeInfo">
+            <id column="gradeId" property="gradeId"></id>
+            <result column="gradeName" property="gradeName"/>
+        </association>
+        <association property="teacher" javaType="com.demon.exam.pojo.TeacherInfo">
+            <id column="teacherId" property="teacherId"></id>
+            <result column="teacherName" property="teacherName"/>
+        </association>
+
+    </resultMap>
+
+    <select id="getStudentCountForClass" parameterType="string" resultType="com.demon.exam.vo.ClassNumVO">
+        select c.className as className,count(s.studentId) as studentNum
+        from StudentInfo s,GradeInfo g,ClassInfo c
+        <where>
+            g.gradeId = c.gradeId and s.classId = c.classId
+                <if test="classId != null and classId!=''">
+                    and g.gradeId =#{classId}
+                </if>
+        </where>
+        GROUP BY c.classId ORDER BY studentNum desc limit 10;
+    </select>
+
+
+
+</mapper>

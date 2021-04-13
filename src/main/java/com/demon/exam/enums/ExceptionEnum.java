@@ -1,0 +1,97 @@
+package com.demon.exam.enums;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public enum ExceptionEnum {
+    CONTINUE(100, "Continue","继续"),
+    SWITCHING_PROTOCOLS(101, "Switching Protocols","交换协议"),
+    PROCESSING(102, "Processing","处理"),
+    CHECKPOINT(103, "Checkpoint","检查点"),
+    OK(200, "OK","操作成功"),
+    CREATED(200, "Created","添加成功"),
+    SAVED(200,"Saved","保存成功"),
+    DELETED(200,"Deleted","删除成功"),
+    ACCEPTED(202, "Accepted","请求已经被接受"),
+    NON_AUTHORITATIVE_INFORMATION(203, "非授权信息",""),
+    NO_CONTENT(204, "No Content","操作执行成功"),
+    RESET_CONTENT(205, "Reset Content","重置内容"),
+    PARTIAL_CONTENT(206, "Partial Content","部分内容"),
+    MULTI_STATUS(207, "Multi-Status","多状态"),
+    ALREADY_REPORTED(208, "Already Reported","已提交"),
+    IM_USED(226, "IM Used",""),
+    MULTIPLE_CHOICES(300, "Multiple Choices",""),
+    MOVED_PERMANENTLY(301, "Moved Permanently","资源已被移除"),
+    FOUND(302, "Found",""),
+    MOVED_TEMPORARILY(302, "Moved Temporarily",""),
+    SEE_OTHER(303, "See Other","重定向"),
+    NOT_MODIFIED(304, "Not Modified",""),
+    USE_PROXY(305, "Use Proxy",""),
+    TEMPORARY_REDIRECT(307, "Temporary Redirect",""),
+    PERMANENT_REDIRECT(308, "Permanent Redirect",""),
+    BAD_REQUEST(400, "Bad Request","参数列表错误"),
+    UNAUTHORIZED(401, "Unauthorized","未授权"),
+    PAYMENT_REQUIRED(402, "Payment Required",""),
+    FORBIDDEN(403, "Forbidden","访问受限，授权过期"),
+    NOT_FOUND(404, "Not Found","资源，服务未找到"),
+    METHOD_NOT_ALLOWED(405, "Method Not Allowed","不允许的http方法"),
+    NOT_ACCEPTABLE(406, "Not Acceptable",""),
+    PROXY_AUTHENTICATION_REQUIRED(407, "Proxy Authentication Required",""),
+    REQUEST_TIMEOUT(408, "Request Timeout",""),
+    CONFLICT(409, "Conflict","资源冲突或者资源被锁定"),
+    GONE(410, "Gone",""),
+    LENGTH_REQUIRED(411, "Length Required",""),
+    PRECONDITION_FAILED(412, "Precondition Failed",""),
+    PAYLOAD_TOO_LARGE(413, "Payload Too Large",""),
+    REQUEST_ENTITY_TOO_LARGE(413, "Request Entity Too Large",""),
+    URI_TOO_LONG(414, "URI Too Long",""),
+    REQUEST_URI_TOO_LONG(414, "Request-URI Too Long",""),
+    UNSUPPORTED_MEDIA_TYPE(415, "Unsupported Media Type","不知道的数据(媒体)类型"),
+    REQUESTED_RANGE_NOT_SATISFIABLE(416, "Requested range not satisfiable",""),
+    EXPECTATION_FAILED(417, "Expectation Failed",""),
+    I_AM_A_TEAPOT(418, "I'm a teapot",""),
+    INSUFFICIENT_SPACE_ON_RESOURCE(419, "Insufficient Space On Resource",""),
+    METHOD_FAILURE(420, "Method Failure",""),
+    DESTINATION_LOCKED(421, "Destination Locked",""),
+    UNPROCESSABLE_ENTITY(422, "Unprocessable Entity",""),
+    LOCKED(423, "Locked",""),
+    FAILED_DEPENDENCY(424, "Failed Dependency",""),
+    TOO_EARLY(425, "Too Early",""),
+    UPGRADE_REQUIRED(426, "Upgrade Required",""),
+    PRECONDITION_REQUIRED(428, "Precondition Required",""),
+    TOO_MANY_REQUESTS(429, "Too Many Requests","请求过多被限制"),
+    REQUEST_HEADER_FIELDS_TOO_LARGE(431, "Request Header Fields Too Large",""),
+    UNAVAILABLE_FOR_LEGAL_REASONS(451, "Unavailable For Legal Reasons",""),
+    INTERNAL_SERVER_ERROR(500, "Internal Server Error","系统内部错误!"),
+    NOT_IMPLEMENTED(501, "Not Implemented","接口未实现"),
+    BAD_GATEWAY(502, "Bad Gateway",""),
+    SERVICE_UNAVAILABLE(503, "Service Unavailable",""),
+    GATEWAY_TIMEOUT(504, "Gateway Timeout",""),
+    HTTP_VERSION_NOT_SUPPORTED(505, "HTTP Version not supported",""),
+    VARIANT_ALSO_NEGOTIATES(506, "Variant Also Negotiates",""),
+    INSUFFICIENT_STORAGE(507, "Insufficient Storage",""),
+    LOOP_DETECTED(508, "Loop Detected",""),
+    BANDWIDTH_LIMIT_EXCEEDED(509, "Bandwidth Limit Exceeded",""),
+    NOT_EXTENDED(510, "Not Extended",""),
+    NETWORK_AUTHENTICATION_REQUIRED(511, "Network Authentication Required",""),
+
+    /*自定义错误*/
+
+    GRADE_NOT_FOUNT(404,"Not Found","年级不存在"),
+    CLASS_NOT_FOUNT(404,"Not Found","班级不存在"),
+    GRADE_ALREADY_EXISTS(224,"Bad Request","年级已存在"),
+    GRADE_DELETE_ERROR(225,"Bad Request","年级删除失败:请先删除该年级科目或者班级"),
+    GRADE_SAVE_ERROR(500,"Internal Server Error","年级保存失败"),
+    COURSE_NOT_FOUNT(404,"Not Found","科目不存在"),
+    COURSE_ALREADY_EXISTS(224,"Bad Request","科目已存在"),
+    COURSE_SAVE_ERROR(500,"Internal Server Error","科目保存失败"),
+    COURSE_DELETE_ERROR(225,"Bad Request","科目删除失败:请先删除该科目下试卷"),
+    ;
+    private int code;
+    private String reasonPhrase;
+    private String msg;
+}
